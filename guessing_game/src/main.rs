@@ -1,13 +1,12 @@
-use std::io;
+use colored::*;
 use rand::Rng;
 use std::cmp::Ordering;
-use colored::*;
-
+use std::io;
 
 fn main() {
     println!("Guess the number!");
 
-    let secret_number = rand::thread_rng().gen_range(1,101);
+    let secret_number = rand::thread_rng().gen_range(1, 101);
 
     println!("The secret number is: {}", secret_number);
 
@@ -27,7 +26,7 @@ fn main() {
 
         println!("You guessed: {}", guess);
 
-        match guess.cmp(&secret_number){
+        match guess.cmp(&secret_number) {
             Ordering::Less => println!("{}", "Too small!".red()),
             Ordering::Greater => println!("{}", "Too big!".red()),
             Ordering::Equal => {
